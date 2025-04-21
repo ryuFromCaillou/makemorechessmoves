@@ -2,9 +2,14 @@ import chess
 import json
 
 def generate_uci_move_list():
+    '''Creates an index mapping for all possible moves (4672)
+    analogously, makemorenames indexes every possible move (letter)
+    we perform softmax on this tensor
+    '''
+    
     all_moves = set()
     board = chess.Board()
-    =for from_sq in chess.SQUARES:
+    for from_sq in chess.SQUARES:
         for to_sq in chess.SQUARES:
             move = chess.Move(from_sq, to_sq)
             all_moves.add(move.uci())
