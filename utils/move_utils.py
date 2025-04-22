@@ -12,11 +12,17 @@ def generate_uci_move_list():
             move = chess.Move(from_sq, to_sq)
             all_moves.add(move.uci())
             # Add promotions
+            # Add promotions
             for promo in [chess.QUEEN, chess.ROOK, chess.BISHOP, chess.KNIGHT]:
-                pairs = (chess.square_rank(from_sq),chess.square_rank(to_sq))
-                if pairs == (1,0) or pairs == (6,7): #only seventh to 8th or 2nd to 1st rows
-                    promo_move = chess.Move(from_sq, to_sq, promotion=promo)
-                    all_moves.add(promo_move.uci())
+                from_rank = chess.square_rank(from_sq)
+                to_rank = chess.square_rank(to_sq)
+                from_file = chess.square_file(from_sq)
+                to_file = chess.square_file(to_sq)
+                # Only allow forward promotion (white or black)
+                if (from_rank, to_rank) in [(6, 7), (1, 0)]:  # white/black promotion ranks
+                    if abs(from_file - to_file) <= 1:         # straight or diagonal
+                        promo_move = chess.Move(from_sq, to_sq, promotion=promo)
+                        all_moves.add(promo_move.uci())
     return sorted(all_moves)
 
 
