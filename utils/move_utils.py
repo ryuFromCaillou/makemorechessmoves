@@ -6,18 +6,19 @@ def generate_uci_move_list():
     analogously, makemorenames indexes every possible move (letter)
     we perform softmax on this tensor
     '''
-    
     all_moves = set()
-    board = chess.Board()
     for from_sq in chess.SQUARES:
         for to_sq in chess.SQUARES:
             move = chess.Move(from_sq, to_sq)
             all_moves.add(move.uci())
             # Add promotions
             for promo in [chess.QUEEN, chess.ROOK, chess.BISHOP, chess.KNIGHT]:
-                promo_move = chess.Move(from_sq, to_sq, promotion=promo)
-                all_moves.add(promo_move.uci())
+                pairs = (chess.square_rank(from_sq),chess.square_rank(to_sq))
+                if pairs == (1,0) or pairs == (6,7): #only seventh to 8th or 2nd to 1st rows
+                    promo_move = chess.Move(from_sq, to_sq, promotion=promo)
+                    all_moves.add(promo_move.uci())
     return sorted(all_moves)
+
 
 def save_move_index_map(path="data/move_index_map.json"):
     moves = generate_uci_move_list()
