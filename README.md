@@ -24,6 +24,7 @@ Predict strong chess moves from board states using NN.
 
 ## Design Decisions
 - Using `python-chess` to validate moves.
+- Embedding squares not all-move pairings
 - Training with categorical cross-entropy.
 - Skipped augmentation for now—only master games.
 
@@ -39,3 +40,6 @@ Predict strong chess moves from board states using NN.
 - Next: build context for training
 - embedding vector is an 8x8 vector (or 64x1) with integer entries in [0,12]
 
+## April 23, 2025 
+
+- 
