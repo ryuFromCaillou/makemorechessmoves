@@ -32,7 +32,7 @@ Predict strong chess moves from board states using NN.
 - Some UCI moves like `a1a1` are legal in format but useless.
 - PGN files often include annotations—strip before parsing.
 
-## April 21, 2025 – 3hr Session
+## April 21, 2025 
 
 - Went through the output tensor build
 - Hit problem: empty label tensor when illegal moves snuck in
@@ -40,6 +40,13 @@ Predict strong chess moves from board states using NN.
 - Next: build context for training
 - embedding vector is an 8x8 vector (or 64x1) with integer entries in [0,12]
 
-## April 23, 2025 
+## April 24, 2025 
 
-- 
+- datasets formed
+
+## April 28, 2025 
+
+- made a note on initializations
+- Next: include initializations depending on activation fxn used
+- Next: improve training
+- Next: Create game situations
