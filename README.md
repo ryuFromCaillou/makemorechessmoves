@@ -50,3 +50,6 @@ Predict strong chess moves from board states using NN.
 - Next: include initializations depending on activation fxn used
 - Next: improve training
 - Next: Create game situations
+
+## For use as of May 9, 2025
+- look through exploration.ipynb in notebooks folder (populating folders is currently a work in progress)
