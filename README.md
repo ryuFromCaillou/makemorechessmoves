@@ -53,3 +53,8 @@ Predict strong chess moves from board states using NN.
 
 ## For use as of May 9, 2025
 - look through exploration.ipynb in notebooks folder (populating folders is currently a work in progress)
+
+## Current in progress: Modularizing
+allowing for easier use through the CLI
+supports: 
+- python chessbot train, dataset, create model

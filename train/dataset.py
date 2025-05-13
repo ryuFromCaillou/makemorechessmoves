@@ -13,7 +13,7 @@ def load_dataset(raw):
            try:
                move_index = move_list.index(move.uci()) # move is INDEXED here, move list starts from first move
                X.append(board_state) # first board state is neutral board, it must be appended to have good beginning game
-               Y.append(move_index)
+               Y.append(move_index_map[move.uci()])
                board.push(move)  # Move AFTER data capture
            except ValueError:
                print(f"Move {move.uci()} not found in move_list. Skipping this move.")
@@ -22,4 +22,4 @@ def load_dataset(raw):
     return X,Y
 
 if __name__ == "__main__": 
-    load_dataset(
+    pass
